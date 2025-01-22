@@ -1,10 +1,10 @@
-function reverseNumber(){
+function reverseNum(){
     let rev = parseInt(num.toString().split("").reverse().join(""));
     return rev;
 }
 
 function ispalindrome(num){
-    let rev = reverseNumber(num);
+    let rev = reverseNum(num);
     if(num === rev){
         console.log(num + " is a palindrome");
     } else {
