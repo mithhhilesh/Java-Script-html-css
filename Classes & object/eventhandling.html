@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handling in Javascript</title>
+</head>
+<body>
+    <h1>Javascript can change HTML</h1>
+    <p id="para">Hello <b>Raj</b></p> 
+    <button onclick="toggle()">Click Me</button>   
+    <script>
+        function toggle() {
+            var element = document.getElementById("para")
+            element.innerHTML="Hello"
+            element.style.color = "red"
+            element.style.fontSize = "Verdana"
+        }
+    </script>
+</body>
+</html>
