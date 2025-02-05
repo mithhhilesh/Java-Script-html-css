@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.Calculator{
+    width: 30%;
+    height: 620px;
+    border: 3px solid black;
+    text-align: center;
+    margin-left: 450px;
+    background-color: #C8D9E6;
+
+
+}
+.display{
+    width: 90%;
+    height: 7%;
+    text-align: right;
+    border: 2px solid black;
+    font-size: 25px;
+}
+.buttons{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 8px;
+}
+.button{
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: #F5EFEB;
+
+
+}
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="Calculator">
+        <h1>Calculator</h1>
+        <input class="display" id="diaplay">
+        <div class="buttons">
+            <button class="button" onclick="appedValue(7)">7</button>
+            <button class="button" onclick="appedValue(8)">8</button>
+            <button class="button" onclick="appedValue(9)">9</button>
+            <button class="button" onclick="appedValue('/')">/</button>
+
+
+            <button class="button" onclick="appedValue(4)">4</button>
+            <button class="button" onclick="appedValue(5)">5</button>
+            <button class="button" onclick="appedValue(6)">6</button>
+            <button class="button" onclick="appedValue('*')">*</button>
+
+
+            <button class="button" onclick="appedValue(1)">1</button>
+            <button class="button" onclick="appedValue(2)">2</button>
+            <button class="button" onclick="appedValue(3)">3</button>
+            <button class="button" onclick="appedValue('-')">-</button>
+           
+            <button class="button" onclick="appedValue(0)">0</button>
+            <button class="button" onclick="appedValue('.')">.</button>
+            <button class="button" onclick="clearValue()">C</button>
+            <button class="button" onclick="appedValue('+')">+</button>
+
+
+            <button class="button"  onclick=percentage()>%</button>
+            <button class="button" span:2; onclick="calCulate('=')">=</button>
+            <!-- <button class="button"  onclick="calCulate()">=</button> -->
+            <button class="button"  onclick=backspace()>Back</button>
+
+
+
+
+        </div>
+
+
+    </div>
+    <script>
+        let display=document.getElementById("diaplay");
+        function appedValue(value){
+            display.value+=value;
+        }
+        function clearValue(){
+            display.value='';
+            }
+        function calCulate(){
+            display.value=eval(diaplay.value);
+        }
+        function backspace(){
+            display.value=display.value.slice(0,-1);
+        }
+        function percentage(){
+            display.value=eval(display.value/100);
+        }
+    </script>
+
+
+   
+</body>
+</html>
