@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffcbf2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #division {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 8px;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #6c63ff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5a53d2;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            #division {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="division">
+            <h1>Registration Form</h1>  
+            <form id="myForm" onsubmit="return validateForm()" method="POST">
+                <div>
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var namePattern = /^[A-Za-z ]+$/;
+            if (name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+            else if (!namePattern.test(name)) {
+                alert("Please enter a valid name");
+                return false;
+            }
+
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email == "") {
+                alert("Email must not be empty.");
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            if (password == "") {
+                alert("Please enter a password");
+                return false;
+            } else if (password.length < 5) {
+                alert("Password must be at least 5 characters long");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

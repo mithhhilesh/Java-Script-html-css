@@ -1,0 +1,118 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FORM</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            background-color: #f5d4f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #000000;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #division {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 4px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }   
+        input[type="SUBMIT"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #f097eb;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px; 
+            font-size: 1.2em;
+        }
+
+    </style>
+    
+    </head>
+        
+    <body> 
+        <div id="division">
+            <h1>Registration Form</h1>
+            <form id="myForm" onsubmit="return validateForm()"method="POST">
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name">
+                <span class="error" id="nameError"></span>
+                <br><br>
+
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email">
+                <span class="error" id="emailError"></span>
+                <br><br>
+
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password">
+                <span class="error" id="passwordError"></span>
+                <br><br>
+                <input type="submit" value="SUBMIT">
+        
+            </form>
+
+        </div>
+        <br><br>
+        
+        <script>
+            document.getElementById("myForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                let valid = true;
+                document.getElementById("successMessage").textContent = "Name is Required.";
+            
+                let name = document.getElementById("name").value.trim();
+                let namePattern = /^[A-Za-z ]+$/;
+                if (name == "") {
+                    alert("Please enter your name");
+                    return false;
+                } else if (!namePattern.test(name)) {
+                    alert("Please enter a valid name");
+                    return false;
+                } else {
+                    document.getElementById("nameError").textContent = "";
+                }
+            
+                let email = document.getElementById("email").value.trim();
+                let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (email == "") {
+                    alert("Email must not be empty.");
+                    return false;
+                } else if (!emailPattern.test(email)) {
+                    alert("Please enter a valid email address");
+                    return false;
+                } else {
+                    document.getElementById("emailError").textContent = "";
+                }
+            
+                let password = document.getElementById("password").value;
+                if (password == "") {
+                    alert("Please enter a password");
+                    return false;
+                } else if (password.length < 5) {
+                    alert("Password must be at least 5 characters long");
+                    return false;
+                }   
+                alert("Form submitted successfully");
+                return true;
+            });
+            
+        </script>
+        
+    </body>
+    </html>
